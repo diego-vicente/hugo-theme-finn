@@ -40,6 +40,7 @@
     {{ printf `<link href="%s" rel="%s" type="%s" title="%s" />` .Permalink .Rel .MediaType.Type $.Site.Title | safeHTML }}
   {{ end }}
   {{ end }}
+  <!-- {{ if hugo.IsProduction }} -->
   {{ if .Site.GoogleAnalytics }}
   {{ if .Site.Params.googleAnalyticsAsync }}
     {{ template "_internal/google_analytics_async.html" . }}
@@ -47,7 +48,8 @@
     {{ template "_internal/google_analytics.html" . }}
   {{ end }}
   {{ end }}
-  {{ if .Site.Params.plausibleAnalytics }}
-  <script defer data-domain={{ .Site.Params.plausibleAnalytics }} src="https://plausible.io/js/plausible.js"></script>
+  {{ if .Site.Params.plausibleDomain }}
+  <script defer data-domain={{ .Site.Params.plausibleDomain }} src="{{ .Site.Params.plausibleURL }}/js/plausible.js"></script>
   {{ end }}
+  <!-- {{ end }} -->
 </head>
