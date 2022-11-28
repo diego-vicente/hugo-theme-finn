@@ -186,31 +186,6 @@ TODO: Customizable copyright year
 copyright = "Zeran Wu" # cactus theme will use site title if copyright is not set
 ```
 
-### Comments
-
-Comments is disabled by default. Enable comments in your `.Site.Params`.
-```toml
-[params]
-  [params.comments]
-    enabled = true
-    # engine = "disqus" # in progress
-```
-
-You can also enable/disable comments per post. in your posts' front matter, add:
-```yaml
-comments: true
-```
-
-The site config is ignored when `comments` option exists in front matter.
-
-The default engine is disqus. **By now only disqus is supported in cactus.** I will add more options sooner or later. See [Comments Alternatives](https://gohugo.io/content-management/comments/#comments-alternatives)
-
-Before using disqus, you need to register and get your [disqus shortname](https://help.disqus.com/en/articles/1717111-what-s-a-shortname). Assign your shortname in `.Site.disqusShortname`, or cactus will use `.Site.Title` by default.
-
-```
-disqusShortname = "wzr" # cactus will use site title if not set
-```
-
 ### highlight
 
 Use hugo's built-in [syntax highlighting](https://gohugo.io/getting-started/configuration-markup#highlight).
@@ -281,18 +256,6 @@ Pagination on posts archive can be disabled to show all posts in chronological o
 [params]
   showAllPostsArchive = true # or false (default)
 ```
-
-## TODOS
-
-- [ ] More comments engines
-- [x] RSS
-- [ ] I18n
-- [x] Analytics
-- [ ] Local Search
-- [ ] toc template
-- [ ] Customizable copyright year
-- [ ] gallery
-- [ ] expose [mathjax configuration](https://docs.mathjax.org/en/latest/web/configuration.html#web-configuration) 
 
 ## License
 
