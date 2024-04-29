@@ -41,13 +41,6 @@
   <link rel="me" href={{ .Site.Params.mastodonVerify }}>
   {{ end }}
   {{ if hugo.IsProduction }}
-  {{ if .Site.GoogleAnalytics }}
-  {{ if .Site.Params.googleAnalyticsAsync }}
-    {{ template "_internal/google_analytics_async.html" . }}
-  {{ else }}
-    {{ template "_internal/google_analytics.html" . }}
-  {{ end }}
-  {{ end }}
   {{ if .Site.Params.plausibleDomain }}
   <script defer data-domain={{ .Site.Params.plausibleDomain }} data-api={{ .Site.Params.plausibleDataAPI }} src={{ .Site.Params.plausibleURL }} ></script>
   {{ end }}
