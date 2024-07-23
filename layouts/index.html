@@ -86,6 +86,41 @@
     {{ end }}
   </section>
 
+  {{ $showTalksList := false }}
+  {{ if (isset .Site.Params "showtalkslist") }}
+    {{ $showTalksList = .Site.Params.showTalksList }}
+  {{ else if .Site.Data.talks }}
+    {{ $showTalksList = true }}
+  {{ end }}
+  {{ if $showTalksList }}
+    {{ $talksUrl := "#" }}
+    {{ if isset .Site.Params "talksurl" }}
+      {{ $talksUrl = .Site.Params.talksUrl }}
+    {{ end }}
+  <section id="talks">
+    <span class="h1"><a href="{{ $talksUrl }}">Talks</a></span>
+    <ul class="talk-list">
+      {{ range .Site.Data.talks.list }}
+      <li class="talk-item">
+        <div class="meta"><time datetime="{{ time .date }}" itemprop="datePublished">{{ .date }}</time></div>
+        <div class="talk-info">
+          <span class="talk-title">{{ .name }}</span> <span class="talk-event"> @ {{ .where }}</span> <br>
+          <span class="talk-description">{{ .desc | markdownify }}</span> <br>
+          <span class="talk-urls">
+            {{ if .recordingUrl }} <a href="{{ .recordingUrl }}">Recording</a> ⸱{{ end }}
+            {{ if .eventUrl }} <a href="{{ .eventUrl }}">Event</a> ⸱{{ end }}
+            {{ if .transcriptUrl }} <a href="{{ .transcriptUrl }}">Transpcript</a> ⸱{{ end }}
+            {{ if .materialsUrl }} <a href="{{ .materialsUrl }}">Materials</a> ⸱{{ end }}
+            {{ if .slidesUrl }} <a href="{{ .slidesUrl }}">Slides</a> {{ end }}
+          </span>
+        </div>
+      </li>
+
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
   {{ $showProjectsList := false }}
   {{ if (isset .Site.Params "showprojectslist") }}
     {{ $showProjectsList = .Site.Params.showProjectsList }}
