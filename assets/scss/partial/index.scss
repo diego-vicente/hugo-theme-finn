@@ -64,9 +64,17 @@
   }
 
   .talk-urls {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     margin-bottom: 5px;
+    font-family: $font-family-mono;
     color: $color-meta;
+
+    a {
+      // don't underline links in the talk list
+      background-image: none;
+      color: $color-meta;
+      padding-top: 5px;
+    }
   }
 
   .talk-item {
@@ -82,7 +90,6 @@
     .talk-item {
       display: flex;
       margin-bottom: 32px;
-      /* margin-left: 1rem; */
 
       .meta {
         text-align: left;

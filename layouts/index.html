@@ -103,11 +103,12 @@
     <ul class="talk-list">
       {{ range (first (.Scratch.Get "count") $mainTalks) }}
       <li class="talk-item">
-        <div class="meta"><time datetime="{{ time .date }}" itemprop="datePublished">{{ .date }}</time></div>
+        <!-- <div class="meta"><time datetime="{{ time .date }}" itemprop="datePublished">{{ .date }}</time></div> -->
         <div class="talk-info">
           <span class="talk-title">{{ .name }}</span> <span class="talk-event"> @ {{ .where }}</span> <br>
           <span class="talk-description">{{ .desc | markdownify }}</span> <br>
-          <span class="talk-urls">
+          <span class="talk-urls" class="meta">
+            {{ .date }} ⸱
             {{ if .recordingUrl }} <a href="{{ .recordingUrl }}">Recording</a> ⸱{{ end }}
             {{ if .eventUrl }} <a href="{{ .eventUrl }}">Event</a> ⸱{{ end }}
             {{ if .transcriptUrl }} <a href="{{ .transcriptUrl }}">Transpcript</a> ⸱{{ end }}
