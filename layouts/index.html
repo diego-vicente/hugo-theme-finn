@@ -99,7 +99,7 @@
     {{ end }}
   <section id="talks">
     <span class="h1"><a href="{{ $talksUrl }}">Talks</a></span>
-    {{ $mainTalks := (sort .Site.Data.talks.list "Date" "desc") }}
+    {{ $mainTalks := (sort .Site.Data.talks.list "date" "desc") }}
     <ul class="talk-list">
       {{ range (first (.Scratch.Get "count") $mainTalks) }}
       <li class="talk-item">
